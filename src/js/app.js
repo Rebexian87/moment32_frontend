@@ -31,7 +31,7 @@ function init () {
               let newElLi= document.createElement ("li")      //Skapar nytt element (li)
 
               let newText=document.createTextNode (exp.companyname+ " " + exp.jobtitle + " " + exp.location ) //Skapar texten till det som visas i listan
-              newElLi.setAttribute('id', exp.id) //Skapar attributet id
+              newElLi.setAttribute('id', exp._id) //Skapar attributet id
            
               newElLi.appendChild(newText) //Lägger newText som "barn" till newElLi
               expEl.appendChild(newElLi) // Lägger newElLi som "barn" till expEl
