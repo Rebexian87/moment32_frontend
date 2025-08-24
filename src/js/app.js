@@ -1,7 +1,5 @@
-
       
 "use strict"  
-
 
 
  
@@ -11,18 +9,15 @@ function init () {
           }
 
   
-          async function getData() {  //Funktion som hämtar data från API
-            const response = await fetch ("http://127.0.0.1:3000/api/workexperiences")
-            
-            const data = await response.json();
-            displayData(data)
-            
-            console.log(data);
-            
-        }
+      async function getData() {  //Funktion som hämtar data från API
+          const response = await fetch ("http://127.0.0.1:3000/api/workexperiences")
+          const data = await response.json();
+          
+          displayData(data)            
+          console.log(data);}
 
         
-        function displayData(data) { //Funktion som visar erfarenheterna i en lista
+      function displayData(data) { //Funktion som visar erfarenheterna i en lista
 
               let expEl = document.getElementById ("erfarenhet");
               expEl.innerHTML="";
@@ -37,31 +32,18 @@ function init () {
               expEl.appendChild(newElLi) // Lägger newElLi som "barn" till expEl
 
             
-              newElLi.addEventListener ("click", deleteWorkexperience, false); //anropar funktionen deleteWorkexperience vid klick
-                
-                
-                }
-                    
-        
-        ); 
-
+              newElLi.addEventListener ("click", deleteWorkexperience, false); //anropar funktionen deleteWorkexperience vid klick           
+              }); 
         
     }
     
-                 async function deleteWorkexperience(e) {  //Funktion som visar delatar erfarenheter
-
-             
-              
-                
-               let id= e.target.id;
-
+      
+    async function deleteWorkexperience(e) {  //Funktion som visar delatar erfarenheter            
               
                
-
-
-                 
- 
-     const response = await fetch(`http://127.0.0.1:3000/api/workexperiences/${id}`, 
+      let id= e.target.id;          
+               
+      const response = await fetch(`http://127.0.0.1:3000/api/workexperiences/${id}`, 
         
         { method: "DELETE",
           headers: {
@@ -71,8 +53,7 @@ function init () {
           const data= await response.json();
              console.log(data);
            
-              getData()
-            
+              getData()           
             
         } 
 
